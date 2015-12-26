@@ -1,0 +1,66 @@
+---
+title       : Venezuelan Educational System 
+subtitle    : App to predict probability of being part of desertion in high school
+author      : Sonia Marin
+job         : Create Data Products - Course Project
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [bootstrap, quiz]  
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+ext_widgets : {rCharts: [libraries/nvd3]}
+---
+
+## Objective
+An App was created to calculate the probability of being part of desertion in high school according to the statistic of the INE (National Institute of Statistic in Venezuela since 2002-2012).   
+
+In this presentation you will see some motivational issues and statistics about
+desertions in high school in the Venezuelan Educational System.   
+
+
+---
+
+## Introduction
+1. In Venezuela 42% of the population with age between 15 and 29 years old go to school.   
+
+2. The school asistence is slightly higher for women than for men.   
+
+3. The average age when half of the young students left school is about 17.4 years old.   
+
+
+### Motivation  
+
+This App try to call the attention of parents and young people about the high rates of desertion and how far or close can be any young men or women of being part of statistics.   
+
+So, are you a parent? or a young men or women? Do you know what is the probability of being part of the population that leave high school?   
+
+--- 
+
+## Desertions by student current year of studying from 2003-2012
+### Current year of stuying refers to:
+#### 1= First year 2= Second year 3= Third year 4= Fourth year
+
+```{r readingdata, echo=FALSE}
+ require(utils)
+csv1<-read.csv("datadesertion2.csv")
+```
+
+
+```{r plotting, echo=FALSE, results='asis', message=FALSE}
+ require(rCharts)
+n1 <- nPlot(freq~scholar, group = "year", data = csv1, type = "multiBarChart")
+n1$print("chart3")
+```
+
+---
+
+## References
+ 1. http://www.ine.gov.ve/index.php?option=com_content&view=category&id=64&Itemid=39
+ 2. http://www.ine.gov.ve/index.php?option=com_content&view=category&id=98&Itemid=51
+ 3. UCAB. Proyecto Juventud Encuesta Nacional de Juventud 2013 - IIES
+ 
+ 4. http://slidify.github.io/dcmeetup/demos/interactive/
+ 
+
+
